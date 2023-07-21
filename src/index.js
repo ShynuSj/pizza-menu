@@ -125,6 +125,7 @@ function Footer() {
         <button className="btn">Order</button>
       </div>
     </footer>
+    // jvnsdvnsmnvmsnv
   );
   // return React.createElement("footer", null, "we're currently open");
 }
