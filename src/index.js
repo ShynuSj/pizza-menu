@@ -118,14 +118,15 @@ function Footer() {
   return (
     <footer className="footer">
       {/* {new Date().toLocaleTimeString()} we're currently open */}
-      <div className="order">
-        {(isOpen && (
+      {isOpen ? (
+        <div className="order">
           <p>We're open until {closeHour}.come visit us or order online.</p>
-        )) || <p>We're currently Closed</p>}
-        <button className="btn">Order</button>
-      </div>
+          <button className="btn">Order</button>
+        </div>
+      ) : (
+        <p>We're currently Closed {closeHour}</p>
+      )}
     </footer>
-    // jvnsdvnsmnvmsnv
   );
   // return React.createElement("footer", null, "we're currently open");
 }
