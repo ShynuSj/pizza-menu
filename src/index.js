@@ -84,27 +84,35 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
+
       {numPizzas > 0 ? (
-        <ul className="pizzas">
-          {pizzaData.map((pizza) => (
-            <Pizza pizzaObj={pizza} key={pizza.name} />
-          ))}
-        </ul>
+        <>
+          <p>
+            Authentic Italian cuisine.6 creative dishes to choose from.All from
+            our store oven,all organic,all delicious.
+          </p>
+          <ul className="pizzas">
+            {pizzaData.map((pizza) => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+          </ul>
+        </>
       ) : null}
     </main>
   );
 }
-function Pizza(props) {
+function Pizza({ pizzaObj }) {
   // if (hour >= openHour && hour <= closeHour) console.log("shop Open");
   // else console.log("we're closed");
   // console.log(props);
+  // if (pizzaObj.soldOut) return null;
   return (
-    <li className="pizza">
-      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
-        <h3>{props.pizzaObj.name}</h3>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price}</span>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price}</span>
       </div>
     </li>
   );
@@ -119,16 +127,22 @@ function Footer() {
     <footer className="footer">
       {/* {new Date().toLocaleTimeString()} we're currently open */}
       {isOpen ? (
-        <div className="order">
-          <p>We're open until {closeHour}.come visit us or order online.</p>
-          <button className="btn">Order</button>
-        </div>
+        <Order closeHour={closeHour} />
       ) : (
-        <p>We're currently Closed {closeHour}</p>
+        <p>We're currently Closed {closeHour}:00PM</p>
       )}
     </footer>
   );
   // return React.createElement("footer", null, "we're currently open");
+}
+
+function Order({ closeHour }) {
+  return (
+    <div className="order">
+      <p>We're open until {closeHour}:00pm.come visit us or order online.</p>
+      <button className="btn">Order</button>
+    </div>
+  );
 }
 
 const dynamic = ReactDOM.createRoot(document.getElementById("root"));
