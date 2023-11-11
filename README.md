@@ -60,6 +60,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/m
 ### Advanced Configuration
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![Screenshot (128)](https://github.com/ShynuSj/pizza-menu/assets/100471775/783f0b38-0777-4e75-acf0-3e536bfca017)
 
 ### Deployment
 
